@@ -45,6 +45,29 @@ your DSH profile and the one inside the app), rebuilds `dist\skin\haerin\` from 
 and injects a marked `<link>`/`<script>` block before `</head>` in `index.html`
 (idempotent; the first run keeps an `index.html.haerin-orig` backup).
 
+### Manual install (macOS / Linux, or no scripts please)
+
+The installer is only a convenience — the skin is three files plus one art folder:
+
+1. Find the client's web shell (`dist`):
+   - the one actually loaded: `~/.dsh/profiles/node_modules/@deepseek-ai/dsh-web-frontend/dist`
+   - optional copy inside the app: `<DSH Desktop>/resources/app/node_modules/@deepseek-ai/dsh-web-frontend/dist`
+2. Copy the whole `haerin-skin/` folder to `<dist>/skin/haerin/`
+   (`haerin.css`, `haerin-boot.js`, `haerin.js` and `art/`). A missing `art/*-photo.jpg`
+   is fine — a missing file simply drops that background layer.
+3. Edit `<dist>/index.html` and add three lines before `</head>`:
+
+   ```html
+   <link rel="stylesheet" href="./skin/haerin/haerin.css">
+   <script src="./skin/haerin/haerin-boot.js"></script>
+   <script src="./skin/haerin/haerin.js" defer></script>
+   ```
+
+4. Reload the client UI (tray icon → Reload Interface).
+
+To uninstall, remove those three lines and the `<dist>/skin/haerin/` folder.
+A client update overwrites `dist`; just redo this (or re-run the installer).
+
 ## Switching
 
 | Action | Result |

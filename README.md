@@ -69,6 +69,29 @@ install.cmd uninstall   # 摘掉引用块 + 删皮肤目录，index.html 逐字�
 3. 在 `index.html` 的 `</head>` 前插入一个带标记的引用块（可重复执行，自动替换；
    首次备份 `index.html.haerin-orig`）。也可以用 `-DistPath` 手动指定目标。
 
+### 手动安装（macOS / Linux，或不想跑脚本）
+
+安装器只是省事，皮肤本身就是三个文件 + 一个素材目录：
+
+1. 找到客户端的 Web 壳目录（`dist`）：
+   - Profile 里那份（被真正加载的）：`~/.dsh/profiles/node_modules/@deepseek-ai/dsh-web-frontend/dist`
+   - 应用自带那份（可选）：`<DSH Desktop>/resources/app/node_modules/@deepseek-ai/dsh-web-frontend/dist`
+2. 把 `haerin-skin/` 整个目录复制成 `<dist>/skin/haerin/`
+   （里面有 `haerin.css`、`haerin-boot.js`、`haerin.js` 和 `art/`）。
+   如果 `art/` 里没有 `*-photo.jpg` 也没关系，缺文件那一层会自动不绘制。
+3. 编辑 `<dist>/index.html`，在 `</head>` 之前加三行：
+
+   ```html
+   <link rel="stylesheet" href="./skin/haerin/haerin.css">
+   <script src="./skin/haerin/haerin-boot.js"></script>
+   <script src="./skin/haerin/haerin.js" defer></script>
+   ```
+
+4. 让客户端重新加载界面（托盘图标右键 →「重新加载界面」）。
+
+**卸载**就是反过来：删掉这三行，再删掉 `<dist>/skin/haerin/` 目录。
+两份 `dist` 都改或只改 Profile 里那份都行；DSH 升级后 `dist` 会被覆盖，重做一次即可。
+
 ## 怎么切换
 
 | 动作 | 效果 |
