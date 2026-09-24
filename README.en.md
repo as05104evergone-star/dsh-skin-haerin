@@ -11,6 +11,13 @@ English | [中文](README.md)
 
 ![night](screenshots/night.jpg)
 
+Default look, without the photo plates (a missing file simply drops that layer).
+With the two photos that ship in the repo baked in:
+
+![day with photo](screenshots/with-photo-day.jpg)
+
+![night with photo](screenshots/with-photo-night.jpg)
+
 > Just want to use it? See **Install**.
 > Want to make it yours (recolour / swap art / rename)? See
 > **[docs/CUSTOMIZE.md](docs/CUSTOMIZE.md)** — it is 3 files plus one art folder, no build step.
@@ -144,6 +151,6 @@ component style has to change**.
 - Code and original vector art: **MIT** (see [LICENSE](LICENSE)).
 - `haerin-skin/_upstream/*.css`: token sheets extracted from `@deepseek-ai/dsh-client-ui-theme`
   (MIT, © DeepSeek), used only so the preview page matches the client's base colours.
-- Photos are user-supplied and git-ignored; the screenshots here are the photo-less default.
-- Fan-made third-party skin, **not affiliated with NewJeans / ADOR / HYBE or DeepSeek**,
-  and it ships no official assets.
+- Photos (haerin-skin/art/*-photo.jpg) are **not** covered by the MIT licence: they are third-party material depicting a real person, shipped at the maintainer's discretion and not licensed to you. Replace or delete them if you fork or redistribute.
+- Fan-made third-party skin, **not affiliated with NewJeans / ADOR / HYBE or DeepSeek**;
+  apart from the two photos above it ships no official assets.

@@ -10,6 +10,16 @@
 
 ![夜](screenshots/night.jpg)
 
+上面是**不含照片**的默认效果（`--hj-wall` 里那一层缺文件就自动不画）。
+把仓库里附的两张照片烘焙进去之后是这样：
+
+![昼 · 带照片](screenshots/with-photo-day.jpg)
+
+![夜 · 带照片](screenshots/with-photo-night.jpg)
+
+> 照片底片随仓库附带，但**不属于 MIT 许可范围**，fork / 二次发布请自行替换或删除，
+> 详见 [许可与声明](#许可与声明)。
+
 > **只想要成品**：看下面「安装」。
 > **想改成你自己的**（换色 / 换图 / 换开关 / 改名）：跳到
 > [自定义指南](docs/CUSTOMIZE.md)——整套皮肤只有 3 个文件 + 一个素材目录，没构建步骤。
@@ -224,7 +234,9 @@ DSH 客户端的颜色全部走 `--dsw-*` 分层 token：`static-*`（原色阶�
 - `haerin-skin/_upstream/*.css`：从 `@deepseek-ai/dsh-client-ui-theme` 抽出的上游 token 表
   （MIT，© DeepSeek），只用于让预览页 1:1 还原客户端底色；皮肤运行时不依赖它。
   参见 [_upstream/README.md](haerin-skin/_upstream/README.md)。
-- **照片不在仓库里**：`art/*-photo.jpg` 是使用者自己的素材，`.gitignore` 已排除；
-  仓库截图用的是不含照片的默认效果。
-- 本项目是粉丝向的第三方皮肤，**与 NewJeans / ADOR / HYBE 及 DeepSeek 均无关联**，
-  不包含任何官方素材。
+- **照片不在 MIT 范围内**：`haerin-skin/art/day-photo.jpg`、`night-photo.jpg` 是第三方拍摄的、
+  含真人肖像与品牌标识的素材，由维护者自行决定随仓库附带，**没有授权给你**。
+  fork、二次发布或商用请先替换或删除它们（删掉文件即可，那一层会自动不绘制）。
+  `LICENSE` 末尾有一段同样的例外说明。
+- 本项目是粉丝向的第三方皮肤，**与 NewJeans / ADOR / HYBE 及 DeepSeek 均无关联**；
+  除上述两张照片外不含任何官方素材。

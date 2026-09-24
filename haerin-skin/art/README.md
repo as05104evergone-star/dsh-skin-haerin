@@ -13,7 +13,7 @@
 | `dither-night.svg` | 抖动网点 | 4px 棋盘格，骨白 4.5% |
 | `day-mist.svg` | 晕染底 | 雪蓝天光 → 雪面近白；右侧用 `<mask>` 淡出让位给照片 |
 | `night-mist.svg` | 晕染底 | 近黑墨底 + 冷蓝 + 右下暖红；同样右侧淡出 |
-| `day-photo.jpg` | 照片 | **你自己的素材，不在仓库里** |
+| `day-photo.jpg` | 照片 | 仓库附带（非 MIT，见 [许可说明](../../README.md#许可与声明)） |
 | `night-photo.jpg` | 照片 | 同上 |
 
 ## 像素贴纸怎么写
