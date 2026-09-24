@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>海粼 Haerin · DSH Skin 预览</title>
+
+    <!-- 预览脚手架：?skinmode=day|night|auto 预置皮肤状态（必须在引导之前） -->
+    <script>
+      (() => {
+        const value = new URLSearchParams(location.search).get("skinmode");
+        if (!value) return;
+        try {
+          localStorage.setItem("haerin.mode", value);
+        } catch {}
+      })();
+    </script>
+
+    <!-- 上游 token 表（从已安装客户端抽出，只为让预览的背景/描边/阴影与真实客户端一致） -->
+    <link rel="stylesheet" href="_upstream/design-platform.css" />
+    <link rel="stylesheet" href="_upstream/gradient-shadow-text.css" />
+    <link rel="stylesheet" href="_upstream/scrollbar.css" />
+
+    <!-- 皮肤本体 -->
+    <link rel="stylesheet" href="haerin.css" />
+
+    <!-- 与真实客户端相同的加载顺序：同步引导 → 延迟运行时 -->
+    <script src="haerin-boot.js"></script>
+    <script src="haerin.js" defer></script>
+
+    <style>
+      /* ---------------------------------------------------------------------
+         预览脚手架：类名刻意照抄客户端 CSS Module 的后缀（哈希部分随便写），
+         这样 haerin.css 里 [class*="_sidebarCol"] 这类规则会被真实命中，
+         预览看到的效果就是客户端里的效果。
+         ------------------------------------------------------------------- */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font: var(--dsw-font-base-16, 400 14px/1.6 var(--dsw-font-family));
+        color: var(--dsw-alias-label-primary);
+      }
+
+      /* --- AppFrame --- */
+      .qNbT7G_frame {
+        display: grid;
+        grid-template-columns: 218px minmax(0, 1fr) 246px;
+        height: 100vh;
+        overflow: hidden;
+        background: var(--dsw-alias-bg-base);
+      }
+
+      .qNbT7G_sidebarCol {
+        background: var(--dsw-specific-sidebar-fill);
+        border-right: 0.5px solid var(--dsw-alias-border-l3);
+        overflow: hidden;
+      }
+
+      .qNbT7G_centerCol {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .qNbT7G_rightbarCol {
+        min-width: 0;
+        position: relative;
+      }
+
+      /* --- SidebarRoot --- */
+      .EXfQ3q_root {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: 100%;
+        padding: 14px 10px;
+        background: var(--dsw-specific-sidebar-fill);
+      }
+
+      .EXfQ3q_brand {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 2px 6px 6px;
+        font-weight: 600;
+      }
+
+      .EXfQ3q_brandMark {
+        width: 20px;
+        height: 20px;
+        background: var(--dsw-alias-brand-primary);
+        border-radius: 7px;
+      }
+
+      .EXfQ3q_newSession {
+        padding: 9px 12px;
+        font: inherit;
+        color: var(--dsw-alias-label-primary);
+        cursor: pointer;
+        background: var(--dsw-alias-button-elevated-fill);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 11px;
+        box-shadow: var(--dsw-elevation-panel);
+      }
+
+      .EXfQ3q_panelList {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .EXfQ3q_panelRow {
+        padding: 8px 10px;
+        color: var(--dsw-alias-label-secondary);
+        border-radius: 9px;
+      }
+
+      .EXfQ3q_panelRow.EXfQ3q_panelActive {
+        color: var(--dsw-alias-label-primary);
+        background: var(--dsw-alias-interactive-bg-active);
+      }
+
+      .EXfQ3q_panelTitle {
+        padding: 0 10px;
+        font: var(--dsw-font-xxs-strong-12, 600 12px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-caption);
+      }
+
+      .rows {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 2px;
+        overflow: hidden;
+      }
+
+      .row {
+        padding: 8px 10px;
+        overflow: hidden;
+        color: var(--dsw-alias-label-secondary);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border-radius: 9px;
+      }
+
+      .row:hover {
+        background: var(--dsw-alias-interactive-bg-hover);
+      }
+
+      .EXfQ3q_footerActions {
+        padding: 8px 10px;
+        font: var(--dsw-font-xs-13, 400 13px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-tertiary);
+        background: var(--dsw-specific-tip);
+        border: 0.5px solid var(--dsw-alias-border-l1);
+        border-radius: 10px;
+      }
+
+      /* --- ConversationRoot --- */
+      ._0cyzDW_root {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+        background: var(--dsw-alias-bg-base);
+      }
+
+      .uj7T0q_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 22px;
+        border-bottom: 0.5px solid var(--dsw-alias-border-l1);
+      }
+
+      .uj7T0q_titleRow h1 {
+        margin: 0;
+        font: var(--dsw-font-m-18, 600 18px/1.4 var(--dsw-font-family));
+      }
+
+      .chip {
+        padding: 4px 9px;
+        font: var(--dsw-font-xxs-strong-12, 600 12px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-secondary);
+        background: var(--dsw-alias-bg-layer-3);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 999px;
+      }
+
+      .ChatView_scroll {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 18px;
+        padding: 22px 30px;
+        overflow: auto;
+      }
+
+      .userRow {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .xIFHsG_bubble {
+        max-width: 62%;
+        padding: 10px 14px;
+        background: var(--dsw-specific-bubble);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 16px 16px 5px;
+      }
+
+      .assistant {
+        max-width: 78%;
+      }
+
+      .assistant p {
+        margin: 8px 0;
+        line-height: 1.78;
+      }
+
+      .assistant a {
+        color: var(--dsw-alias-link);
+        text-decoration: none;
+        border-bottom: 1px solid color-mix(in srgb, var(--dsw-alias-link) 35%, transparent);
+      }
+
+      code.inline {
+        padding: 1px 5px;
+        font: 400 12.5px/1.5 "SF Mono", Consolas, monospace;
+        color: var(--dsw-alias-label-primary);
+        background: var(--dsw-alias-markdown-inline-code);
+        border: 0.5px solid var(--dsw-alias-border-l1);
+        border-radius: 5px;
+      }
+
+      .codeblock {
+        overflow: hidden;
+        background: var(--dsw-alias-markdown-code-block);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 12px;
+        box-shadow: var(--dsw-elevation-panel);
+      }
+
+      .codeblock header {
+        padding: 6px 12px;
+        font: var(--dsw-font-xxs-strong-12, 600 12px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-tertiary);
+        background: var(--dsw-alias-markdown-code-block-banner);
+        border-bottom: 0.5px solid var(--dsw-alias-border-l1);
+      }
+
+      .codeblock pre {
+        margin: 0;
+        padding: 12px;
+        font: 400 12.5px/1.7 "SF Mono", Consolas, monospace;
+        color: var(--dsw-alias-label-primary);
+      }
+
+      .think {
+        padding: 8px 12px;
+        font: var(--dsw-font-xs-13, 400 13px/1.6 var(--dsw-font-family));
+        color: var(--dsw-alias-label-tertiary);
+        background: var(--dsw-linear-think-select);
+        border-left: 2px solid var(--dsw-alias-brand-primary-new-colorprimary-new-color, var(--dsw-alias-link));
+        border-radius: 8px;
+      }
+
+      .tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+
+      .tool {
+        padding: 4px 9px;
+        font: var(--dsw-font-xs-13, 400 13px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-secondary);
+        background: var(--dsw-alias-bg-layer-3);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 8px;
+      }
+
+      .tool.ok {
+        color: var(--dsw-alias-state-success-primary);
+        border-color: color-mix(in srgb, var(--dsw-alias-state-success-primary) 35%, transparent);
+      }
+
+      /* --- 输入区 --- */
+      ._0cyzDW_composerSeat {
+        padding: 12px 30px 18px;
+      }
+
+      .p_FcLG_card {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 14px;
+        background: var(--dsw-specific-input-major);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 16px;
+        box-shadow: var(--dsw-elevation-soft);
+      }
+
+      .p_FcLG_card .ph {
+        color: var(--dsw-alias-label-caption);
+      }
+
+      .p_FcLG_card .row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .ghost {
+        padding: 5px 10px;
+        font: var(--dsw-font-xs-13, 400 13px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-secondary);
+        background: transparent;
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 999px;
+      }
+
+      .send {
+        padding: 6px 14px;
+        font: var(--dsw-font-xs-strong-13, 600 13px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-primary-foreground);
+        background: var(--dsw-alias-brand-primary);
+        border: 0;
+        border-radius: 999px;
+      }
+
+      /* --- 右栏 --- */
+      ._12sy_W_panel {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+        padding: 16px 12px;
+        background: var(--dsw-alias-bg-base);
+      }
+
+      ._12sy_W_panelBody {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .card {
+        padding: 10px 12px;
+        background: var(--dsw-alias-bg-layer-3);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 12px;
+        box-shadow: var(--dsw-elevation-panel);
+      }
+
+      .card h3 {
+        margin: 0 0 6px;
+        font: var(--dsw-font-xs-strong-13, 600 13px/1.5 var(--dsw-font-family));
+      }
+
+      .card p {
+        margin: 0;
+        font: var(--dsw-font-xs-13, 400 13px/1.6 var(--dsw-font-family));
+        color: var(--dsw-alias-label-tertiary);
+      }
+
+      .swatches {
+        display: flex;
+        gap: 6px;
+      }
+
+      .sw {
+        width: 22px;
+        height: 22px;
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 7px;
+      }
+
+      /* --- 一个浮起来的菜单，用来看最厚那层玻璃 --- */
+      .IecIca_menu {
+        position: fixed;
+        top: 96px;
+        right: 268px;
+        z-index: 40;
+        width: 226px;
+        padding: 6px;
+        background: var(--dsw-specific-menu);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 12px;
+        box-shadow: var(--dsw-elevation-prominent);
+      }
+
+      .IecIca_menu .row {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .IecIca_menu .row.selected {
+        background: var(--dsw-alias-interactive-bg-active);
+      }
+
+      .hint {
+        position: fixed;
+        bottom: 18px;
+        left: 50%;
+        z-index: 40;
+        padding: 6px 12px;
+        font: var(--dsw-font-xxs-12, 400 12px/1.5 var(--dsw-font-family));
+        color: var(--dsw-alias-label-tertiary);
+        background: var(--dsw-alias-bg-layer-3);
+        border: 0.5px solid var(--dsw-alias-border-l2);
+        border-radius: 999px;
+        box-shadow: var(--dsw-elevation-panel);
+        transform: translateX(-50%);
+      }
+
+      body[data-preview-hint="off"] .hint {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 复刻宿主：引导脚本在 <body> 打开后立刻决定明暗 -->
+    <script>
+      (() => {
+        const q = new URLSearchParams(location.search);
+        const dark = q.get("appdark") === "1" || q.get("mode") === "night";
+        document.body.toggleAttribute("data-ds-dark-theme", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        if (q.get("nohint") === "1") document.body.dataset.previewHint = "off";
+      })();
+    </script>
+
+    <div class="qNbT7G_frame">
+      <div class="qNbT7G_sidebarCol">
+        <div class="EXfQ3q_root">
+          <div class="EXfQ3q_brand"><span class="EXfQ3q_brandMark"></span>DeepSeek Harness</div>
+          <button class="EXfQ3q_newSession" type="button">＋ 新会话</button>
+          <nav class="EXfQ3q_panelList">
+            <div class="EXfQ3q_panelRow EXfQ3q_panelActive">会话</div>
+            <div class="EXfQ3q_panelRow">工作区</div>
+            <div class="EXfQ3q_panelRow">插件</div>
+          </nav>
+          <div class="EXfQ3q_panelTitle">最近</div>
+          <div class="rows">
+            <div class="row">给 DSH 写一套海粼皮肤</div>
+            <div class="row">整理 wav 采样库</div>
+            <div class="row">周报 · 第八周</div>
+          </div>
+          <div class="EXfQ3q_footerActions">🌿 海粼皮肤 · 已启用</div>
+        </div>
+      </div>
+
+      <div class="qNbT7G_centerCol">
+        <div class="_0cyzDW_root">
+          <header class="uj7T0q_header">
+            <div class="uj7T0q_titleRow"><h1>给 DSH 写一套海粼皮肤</h1></div>
+            <span class="chip">deepseek-flash</span>
+          </header>
+
+          <div class="ChatView_scroll">
+            <div class="userRow">
+              <div class="xIFHsG_bubble">帮我配一套浅色 + 夜间，用这两张图，像素一点。</div>
+            </div>
+
+            <div class="assistant">
+              <div class="think">正在调色：雪地的冷蓝做底，丹宁点一下，再留一点腮红。</div>
+              <p>
+                配色落在 <code class="inline">--dsw-alias-*</code> 上，背景交给壁纸，
+                玻璃交给 <code class="inline">backdrop-filter</code>，所以组件样式一行都不用改。
+              </p>
+              <div class="codeblock">
+                <header>haerin.css</header>
+                <pre>html[data-haerin-skin="on"] [class*="_sidebarCol"] {
+  backdrop-filter: blur(24px) saturate(1.4);
+}</pre>
+              </div>
+              <div class="tools">
+                <span class="tool ok">✓ 昼 / 夜 已就绪</span>
+                <span class="tool">右下角点一下切换</span>
+                <span class="tool">Alt + H</span>
+              </div>
+            </div>
+
+            <div class="userRow">
+              <div class="xIFHsG_bubble">夜间那套再静一点。</div>
+            </div>
+
+            <div class="assistant">
+              <p>
+                夜色的底是纯黑 <code class="inline">#070708</code>，文字是骨白，红花当唯一亮色，
+                像素星与月牙留在壁纸上。参考 <a href="#">调色板说明</a>。
+              </p>
+            </div>
+          </div>
+
+          <div class="_0cyzDW_composerSeat">
+            <div class="p_FcLG_card" data-composer-card>
+              <div>再给我看一眼夜里的样子<span class="ph">…</span></div>
+              <div class="row">
+                <span class="ghost">＋ 附件</span>
+                <button class="send" type="button">发送</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qNbT7G_rightbarCol">
+        <div class="_12sy_W_panel">
+          <div class="_12sy_W_panelBody">
+            <div class="card">
+              <h3>海粼调色板</h3>
+              <div class="swatches">
+                <span class="sw" style="background: #f4f8fd"></span>
+                <span class="sw" style="background: #93a6c0"></span>
+                <span class="sw" style="background: #4a6c9c"></span>
+                <span class="sw" style="background: #c97f8e"></span>
+                <span class="sw" style="background: #0a0909"></span>
+                <span class="sw" style="background: #d2555f"></span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>这两套是什么</h3>
+              <p>昼：雪原冷蓝 + 像素雪片 + 提花卫衣的丹宁花。<br />夜：纯黑 + 像素红花 + 骨白星野。</p>
+            </div>
+            <div class="card">
+              <h3>切换</h3>
+              <p>点右下角猫耳胶囊；右键回到「跟随客户端」；Shift+点击收起皮肤。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="IecIca_menu">
+      <div class="row selected"><span>deepseek-flash</span><span>✓</span></div>
+      <div class="row"><span>deepseek-pro</span><span></span></div>
+      <div class="row"><span>deepseek-lite</span><span></span></div>
+    </div>
+
+    <div class="hint">点右下角 · 昼 ⇄ 夜 · 这是预览页，不是客户端本体</div>
+  </body>
+</html>

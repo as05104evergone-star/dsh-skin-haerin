@@ -1,0 +1,16 @@
+# 忽略：用户自己的照片底片与本地截图（版权在人身上，不进仓库）
+haerin-skin/art/day-photo.jpg
+haerin-skin/art/night-photo.jpg
+haerin-skin/art/*-photo.jpg
+haerin-skin/art/*-photo.png
+screenshots/local/
+
+# 忽略：开发时的临时产物
+.shots/
+.park/
+*.bak
+.haerin.css.bak
+.tmp-*.ps1
+
+# 忽略：如果有人在仓库里直接跑安装，dist 里的副本不属于源码
+skin/

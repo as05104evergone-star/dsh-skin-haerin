@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 4" width="4" height="4">
+  <!-- 海粼 · 昼：4px 抖动网点，制造低分辨率屏幕的质感 -->
+  <g fill="#2a3a50" opacity="0.05">
+    <rect x="0" y="0" width="2" height="2" />
+    <rect x="2" y="2" width="2" height="2" />
+  </g>
+</svg>

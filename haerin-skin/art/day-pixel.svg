@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <!-- 海粼 · 昼：像素贴纸层（村上隆 × 飞天小女警联名那种 8-bit 拼贴感）。
+       所有图形都在整数网格上放大，crispEdges 保证边缘是硬的像素块。
+       取色来自照片本身：雪白、雪蓝、提花卫衣的丹宁灰蓝、脸颊的腮红。 -->
+  <defs>
+    <!-- 雪片 7x7 -->
+    <g fill="currentColor" id="flake">
+      <rect x="3" y="0" width="1" height="7" />
+      <rect x="0" y="3" width="7" height="1" />
+      <rect x="1" y="1" width="1" height="1" />
+      <rect x="5" y="1" width="1" height="1" />
+      <rect x="1" y="5" width="1" height="1" />
+      <rect x="5" y="5" width="1" height="1" />
+      <rect x="2" y="2" width="1" height="1" />
+      <rect x="4" y="2" width="1" height="1" />
+      <rect x="2" y="4" width="1" height="1" />
+      <rect x="4" y="4" width="1" height="1" />
+    </g>
+    <!-- 花 7x7：呼应卫衣上的提花 -->
+    <g fill="currentColor" id="flower">
+      <rect x="2" y="0" width="3" height="1" />
+      <rect x="1" y="1" width="5" height="1" />
+      <rect x="0" y="2" width="7" height="1" />
+      <rect x="0" y="3" width="3" height="1" />
+      <rect x="4" y="3" width="3" height="1" />
+      <rect x="0" y="4" width="7" height="1" />
+      <rect x="1" y="5" width="5" height="1" />
+      <rect x="2" y="6" width="3" height="1" />
+    </g>
+    <!-- 心 7x6 -->
+    <g fill="currentColor" id="heart">
+      <rect x="1" y="0" width="2" height="1" />
+      <rect x="4" y="0" width="2" height="1" />
+      <rect x="0" y="1" width="7" height="2" />
+      <rect x="1" y="3" width="5" height="1" />
+      <rect x="2" y="4" width="3" height="1" />
+      <rect x="3" y="5" width="1" height="1" />
+    </g>
+    <!-- 四角闪 7x7 -->
+    <g fill="currentColor" id="star">
+      <rect x="3" y="0" width="1" height="3" />
+      <rect x="2" y="2" width="3" height="1" />
+      <rect x="0" y="3" width="7" height="1" />
+      <rect x="2" y="4" width="3" height="1" />
+      <rect x="3" y="4" width="1" height="3" />
+    </g>
+    <!-- 兔子 9x11 -->
+    <g fill="currentColor" id="bunny">
+      <rect x="1" y="0" width="2" height="3" />
+      <rect x="6" y="0" width="2" height="3" />
+      <rect x="1" y="3" width="3" height="1" />
+      <rect x="5" y="3" width="3" height="1" />
+      <rect x="0" y="4" width="9" height="1" />
+      <rect x="0" y="5" width="2" height="1" />
+      <rect x="3" y="5" width="3" height="1" />
+      <rect x="7" y="5" width="2" height="1" />
+      <rect x="0" y="6" width="9" height="1" />
+      <rect x="1" y="7" width="7" height="2" />
+      <rect x="0" y="9" width="9" height="1" />
+      <rect x="0" y="10" width="2" height="1" />
+      <rect x="7" y="10" width="2" height="1" />
+    </g>
+    <!-- 猫 9x9 -->
+    <g fill="currentColor" id="cat">
+      <rect x="0" y="0" width="1" height="1" />
+      <rect x="8" y="0" width="1" height="1" />
+      <rect x="0" y="1" width="2" height="1" />
+      <rect x="7" y="1" width="2" height="1" />
+      <rect x="0" y="2" width="3" height="1" />
+      <rect x="6" y="2" width="3" height="1" />
+      <rect x="0" y="3" width="9" height="1" />
+      <rect x="0" y="4" width="1" height="1" />
+      <rect x="2" y="4" width="5" height="1" />
+      <rect x="8" y="4" width="1" height="1" />
+      <rect x="0" y="5" width="9" height="1" />
+      <rect x="1" y="6" width="7" height="2" />
+      <rect x="0" y="8" width="3" height="1" />
+      <rect x="6" y="8" width="3" height="1" />
+    </g>
+  </defs>
+
+  <g shape-rendering="crispEdges">
+    <!-- 雪片 -->
+    <g color="#ffffff" opacity="0.92">
+      <g transform="translate(236,148) scale(5)"><use href="#flake" /></g>
+      <g transform="translate(618,118) scale(7)"><use href="#flake" /></g>
+      <g transform="translate(976,214) scale(4)"><use href="#flake" /></g>
+    </g>
+    <g color="#aac1de" opacity="0.75">
+      <g transform="translate(424,318) scale(5)"><use href="#flake" /></g>
+      <g transform="translate(1262,176) scale(6)"><use href="#flake" /></g>
+      <g transform="translate(1518,466) scale(4)"><use href="#flake" /></g>
+      <g transform="translate(560,470) scale(5)"><use href="#flake" /></g>
+      <g transform="translate(716,906) scale(4)"><use href="#flake" /></g>
+      <g transform="translate(1060,330) scale(4)"><use href="#flower" /></g>
+      <g transform="translate(1240,468) scale(5)"><use href="#star" /></g>
+      <g transform="translate(1258,700) scale(6)"><use href="#flake" /></g>
+      <g transform="translate(878,928) scale(4)"><use href="#flake" /></g>
+    </g>
+
+    <!-- 丹宁花：呼应卫衣上的提花 -->
+    <g color="#4a6c9c" opacity="0.58">
+      <g transform="translate(146,190) scale(7)"><use href="#flower" /></g>
+      <g transform="translate(188,392) scale(4)"><use href="#flower" /></g>
+      <g transform="translate(1124,764) scale(6)"><use href="#flower" /></g>
+      <g transform="translate(1350,898) scale(8)"><use href="#flower" /></g>
+    </g>
+
+    <!-- 腮红粉：取自她的脸颊 -->
+    <g color="#c97f8e" opacity="0.46">
+      <g transform="translate(196,626) scale(5)"><use href="#flower" /></g>
+      <g transform="translate(1506,930) scale(4)"><use href="#heart" /></g>
+    </g>
+
+    <!-- 兔子：压在左栏底下，被磨砂糊成柔影 -->
+    <g color="#3e5a82" opacity="0.62">
+      <g transform="translate(122,604) scale(6)"><use href="#bunny" /></g>
+      <g transform="translate(230,816) scale(4)"><use href="#bunny" /></g>
+    </g>
+
+    <g color="#4a6c9c" opacity="0.42">
+      <g transform="translate(1340,224) scale(5)"><use href="#heart" /></g>
+      <g transform="translate(758,384) scale(3)"><use href="#star" /></g>
+      <g transform="translate(932,712) scale(4)"><use href="#star" /></g>
+    </g>
+  </g>
+</svg>

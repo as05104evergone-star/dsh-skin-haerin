@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <!-- 海粼 · 昼：雪原穹顶。天光从 #A0C0E0 的雪蓝压到雪面的近白，
+       左上留一块丹宁灰蓝，左下一点淡紫——全部取自照片本身的取色。 -->
+  <defs>
+    <linearGradient id="sky" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#cfe0f4" />
+      <stop offset="0.26" stop-color="#dfeaf8" />
+      <stop offset="0.58" stop-color="#eef4fc" />
+      <stop offset="1" stop-color="#f8fbff" />
+    </linearGradient>
+    <radialGradient id="denim" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7e9bc4" stop-opacity="0.62" />
+      <stop offset="0.55" stop-color="#93a9cb" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#93a9cb" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="lilac" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#b9b6dd" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#b9b6dd" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <!-- 右侧让出来给照片：晕染往右淡出 -->
+    <linearGradient id="handover" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" />
+      <stop offset="0.42" stop-color="#fff" />
+      <stop offset="0.78" stop-color="#999" />
+      <stop offset="1" stop-color="#3a3a3a" />
+    </linearGradient>
+    <mask id="fade">
+      <rect width="1600" height="1000" fill="url(#handover)" />
+    </mask>
+  </defs>
+
+  <g mask="url(#fade)">
+    <rect width="1600" height="1000" fill="url(#sky)" />
+    <ellipse cx="150" cy="120" rx="640" ry="500" fill="url(#denim)" />
+    <ellipse cx="420" cy="1010" rx="640" ry="430" fill="url(#lilac)" />
+    <ellipse cx="1060" cy="90" rx="380" ry="260" fill="url(#sun)" />
+
+    <!-- 雪原上的起伏 -->
+    <g fill="none" stroke="#6f8fb8" stroke-linecap="round">
+      <path d="M-40 742 q 150 -26 300 0 t 300 0 t 300 0 t 300 0 t 300 0 t 300 0" stroke-opacity="0.10" stroke-width="2" />
+      <path d="M-40 810 q 150 -22 300 0 t 300 0 t 300 0 t 300 0 t 300 0 t 300 0" stroke-opacity="0.07" stroke-width="2" />
+      <path d="M-40 878 q 150 -18 300 0 t 300 0 t 300 0 t 300 0 t 300 0 t 300 0" stroke-opacity="0.05" stroke-width="2" />
+    </g>
+  </g>
+</svg>

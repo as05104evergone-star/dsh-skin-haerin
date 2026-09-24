@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <!-- 海粼 · 夜：像素贴纸层。取色来自照片：纯黑、骨白、那朵花的胭脂红。
+       左下的红猫压在侧栏底下（磨砂会把它糊成一块柔红），
+       星星与月牙留在上面，和照片里的花形成对角。 -->
+  <defs>
+    <g fill="currentColor" id="star">
+      <rect x="3" y="0" width="1" height="3" />
+      <rect x="2" y="2" width="3" height="1" />
+      <rect x="0" y="3" width="7" height="1" />
+      <rect x="2" y="4" width="3" height="1" />
+      <rect x="3" y="4" width="1" height="3" />
+    </g>
+    <g fill="currentColor" id="flower">
+      <rect x="2" y="0" width="3" height="1" />
+      <rect x="1" y="1" width="5" height="1" />
+      <rect x="0" y="2" width="7" height="1" />
+      <rect x="0" y="3" width="3" height="1" />
+      <rect x="4" y="3" width="3" height="1" />
+      <rect x="0" y="4" width="7" height="1" />
+      <rect x="1" y="5" width="5" height="1" />
+      <rect x="2" y="6" width="3" height="1" />
+    </g>
+    <g fill="currentColor" id="heart">
+      <rect x="1" y="0" width="2" height="1" />
+      <rect x="4" y="0" width="2" height="1" />
+      <rect x="0" y="1" width="7" height="2" />
+      <rect x="1" y="3" width="5" height="1" />
+      <rect x="2" y="4" width="3" height="1" />
+      <rect x="3" y="5" width="1" height="1" />
+    </g>
+    <g fill="currentColor" id="moon">
+      <rect x="2" y="0" width="2" height="1" />
+      <rect x="1" y="1" width="4" height="1" />
+      <rect x="0" y="2" width="4" height="1" />
+      <rect x="0" y="3" width="3" height="1" />
+      <rect x="0" y="4" width="4" height="1" />
+      <rect x="1" y="5" width="4" height="1" />
+      <rect x="2" y="6" width="2" height="1" />
+    </g>
+    <g fill="currentColor" id="cat">
+      <rect x="0" y="0" width="1" height="1" />
+      <rect x="8" y="0" width="1" height="1" />
+      <rect x="0" y="1" width="2" height="1" />
+      <rect x="7" y="1" width="2" height="1" />
+      <rect x="0" y="2" width="3" height="1" />
+      <rect x="6" y="2" width="3" height="1" />
+      <rect x="0" y="3" width="9" height="1" />
+      <rect x="0" y="4" width="1" height="1" />
+      <rect x="2" y="4" width="5" height="1" />
+      <rect x="8" y="4" width="1" height="1" />
+      <rect x="0" y="5" width="9" height="1" />
+      <rect x="1" y="6" width="7" height="2" />
+      <rect x="0" y="8" width="3" height="1" />
+      <rect x="6" y="8" width="3" height="1" />
+    </g>
+  </defs>
+
+  <g shape-rendering="crispEdges">
+    <!-- 星野 -->
+    <g color="#e8e2de" opacity="0.58">
+      <g transform="translate(196,150) scale(4)"><use href="#star" /></g>
+      <g transform="translate(468,64) scale(3)"><use href="#star" /></g>
+      <g transform="translate(742,214) scale(5)"><use href="#star" /></g>
+      <g transform="translate(1040,92) scale(3)"><use href="#star" /></g>
+      <g transform="translate(388,596) scale(3)"><use href="#star" /></g>
+      <g transform="translate(700,844) scale(4)"><use href="#star" /></g>
+      <g transform="translate(1544,760) scale(4)"><use href="#star" /></g>
+      <g transform="translate(1150,268) scale(6)"><use href="#flower" /></g>
+      <g transform="translate(1330,506) scale(5)"><use href="#flower" /></g>
+      <g transform="translate(1096,742) scale(4)"><use href="#star" /></g>
+      <g transform="translate(1436,300) scale(3)"><use href="#star" /></g>
+      <g transform="translate(1264,896) scale(4)"><use href="#star" /></g>
+      <g transform="translate(1290,560) scale(3)"><use href="#star" /></g>
+      <g transform="translate(520,432) scale(4)"><use href="#star" /></g>
+      <g transform="translate(432,704) scale(3)"><use href="#star" /></g>
+      <g transform="translate(700,254) scale(3)"><use href="#star" /></g>
+    </g>
+
+    <!-- 月牙（左上，跟右上的花对角） -->
+    <g color="#f3ece8" opacity="0.7">
+      <g transform="translate(112,88) scale(9)"><use href="#moon" /></g>
+    </g>
+
+    <!-- 胭脂红的花：黑底上的唯一亮色 -->
+    <g color="#c2454e" opacity="0.8">
+      <g transform="translate(556,806) scale(8)"><use href="#flower" /></g>
+      <g transform="translate(652,872) scale(5)"><use href="#flower" /></g>
+      <g transform="translate(198,700) scale(6)"><use href="#flower" /></g>
+    </g>
+
+    <!-- 红猫：压在左栏底下 -->
+    <g color="#a8444e" opacity="0.9">
+      <g transform="translate(128,592) scale(7)"><use href="#cat" /></g>
+    </g>
+
+    <g color="#e8b6ba" opacity="0.34">
+      <g transform="translate(980,318) scale(4)"><use href="#heart" /></g>
+      <g transform="translate(824,612) scale(3)"><use href="#heart" /></g>
+    </g>
+  </g>
+</svg>

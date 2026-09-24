@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 4" width="4" height="4">
+  <!-- 海粼 · 夜：4px 抖动网点，极淡的骨白 -->
+  <g fill="#e8e2de" opacity="0.045">
+    <rect x="0" y="0" width="2" height="2" />
+    <rect x="2" y="2" width="2" height="2" />
+  </g>
+</svg>
